@@ -40,3 +40,5 @@
 //#define MIDI_TONE_KEYCODE_OCTAVES 2
 
 #endif
+
+#define TAPPING_TERM 200
