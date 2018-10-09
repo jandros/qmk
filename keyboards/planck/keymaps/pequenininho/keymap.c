@@ -33,14 +33,12 @@ enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   COLEMAK,
   DVORAK,
-  WORKMAN,
-  BACKLIT
+  WORKMAN
 };
 
 
-#define LOWER MO(_LOWER)
-#define RAISE MO(_RAISE)
-#define LT_ESC LT(_RAISE,KC_ESC)
+#define LOWER TT(_LOWER)
+#define RAISE TT(_RAISE)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -58,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_QWERTY] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,    KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,               KC_BSPC},
-  {LT_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,            KC_QUOT},
+  {KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,    KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,            KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,            KC_SFTENT },
   {KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, RALT_T(KC_DOWN),  RGUI_T(KC_UP),      RCTL_T(KC_RGHT)}
 },
@@ -76,7 +74,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_COLEMAK] = {
   {KC_TAB,  KC_Q,    KC_W,    KC_F,    KC_P,    KC_G,    KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN, KC_BSPC},
-  {LT_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT},
+  {KC_ESC,  KC_A,    KC_R,    KC_S,    KC_T,    KC_D,    KC_H,    KC_N,    KC_E,    KC_I,    KC_O,    KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,    KC_K,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT },
   {KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, RALT_T(KC_DOWN),  RGUI_T(KC_UP),      RCTL_T(KC_RGHT)}
 },
@@ -94,7 +92,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_DVORAK] = {
   {KC_TAB,  KC_QUOT, KC_COMM, KC_DOT,  KC_P,    KC_Y,    KC_F,    KC_G,    KC_C,    KC_R,    KC_L,    KC_BSPC},
-  {LT_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH},
+  {KC_ESC,  KC_A,    KC_O,    KC_E,    KC_U,    KC_I,    KC_D,    KC_H,    KC_T,    KC_N,    KC_S,    KC_SLSH},
   {KC_LSFT, KC_SCLN, KC_Q,    KC_J,    KC_K,    KC_X,    KC_B,    KC_M,    KC_W,    KC_V,    KC_Z,    KC_SFTENT },
   {KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, RALT_T(KC_DOWN),  RGUI_T(KC_UP),      RCTL_T(KC_RGHT)}
 },
@@ -112,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_WORKMAN] = {
   {KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,    KC_B,    KC_J,    KC_F,    KC_U,    KC_P,    KC_SCLN,    KC_BSPC},
-  {LT_ESC,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT},
+  {KC_ESC,  KC_A,    KC_S,    KC_H,    KC_T,    KC_G,    KC_Y,    KC_N,    KC_E,    KC_O,    KC_I, KC_QUOT},
   {KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,    KC_V,    KC_K,    KC_L,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT },
   {KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC,  KC_SPC,  RAISE,   KC_LEFT, RALT_T(KC_DOWN),  RGUI_T(KC_UP),      RCTL_T(KC_RGHT)}
 },
@@ -121,7 +119,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   `  |      | Home |  UP  | End  |Pg_up |      |      |      |   (  |   )  | Del  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      | LEFT | DOWN | RGHT |Pg_dn |      |   -  |   =  |   [  |   ]  |  \   |
+ * | PSCR |      | LEFT | DOWN | RGHT |Pg_dn |      |   -  |   =  |   [  |   ]  |  \   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |      |      |      |      |      |      |      |      |      |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -130,7 +128,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = {
   {KC_GRV, _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, _______, KC_LPRN, KC_RPRN, KC_DEL},
-  {_______, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, KC_MINUS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS},
+  {KC_PSCR, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, KC_MINUS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______},
   {_______, _______, _______, _______, _______, KC_INS,  KC_INS,  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END}
 },
@@ -139,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |   `  |  F10 |  F7  |  F8  |  F9  |      |      |   7  |   8  |   9  |      | Del  |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |  F11 |  F4  |  F5  |  F6  |      |      |   4  |   5  |   6  |      |      |
+ * |      |  F11 |  F4  |  F5  |  F6  |      |      |   4  |   5  |   6  |      |  \   |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |  F12 |  F3  |  F2  |  F1  |      |      |   1  |   2  |   3  |      |      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
@@ -148,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_LOWER] = {
   {KC_GRV,  KC_F10,  KC_F9,   KC_F8,   KC_F7,   _______, _______, KC_7,    KC_8,    KC_9,    _______, KC_DEL },
-  {_______, KC_F11,  KC_F6,   KC_F5,   KC_F4,   _______, _______, KC_4,    KC_5,    KC_6,    _______, _______},
+  {_______, KC_F11,  KC_F6,   KC_F5,   KC_F4,   _______, _______, KC_4,    KC_5,    KC_6,    _______, KC_BSLS},
   {_______, KC_F12,  KC_F3,   KC_F2,   KC_F1,   _______, _______, KC_1,    KC_2,    KC_3,    _______, _______},
   {_______, _______, _______, _______, _______, KC_0,    KC_0,    _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY}
 },
@@ -203,19 +201,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case WORKMAN:
       if(record->event.pressed){
         set_single_persistent_default_layer(_WORKMAN);
-      }
-      return false;
-      break;
-    case BACKLIT:
-      if (record->event.pressed) {
-        register_code(KC_RSFT);
-        #ifdef BACKLIGHT_ENABLE
-          backlight_step();
-        #endif
-        PORTE &= ~(1<<6);
-      } else {
-        unregister_code(KC_RSFT);
-        PORTE |= (1<<6);
       }
       return false;
       break;
