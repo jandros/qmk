@@ -42,4 +42,4 @@
 
 #define TAPPING_TERM 500
 
-#define TAPPING_TOGGLE 2
+#define TAPPING_TOGGLE 3
