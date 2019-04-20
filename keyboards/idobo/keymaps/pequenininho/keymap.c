@@ -28,6 +28,8 @@ enum idobo_layers = {
 #define RGUIU RGUI_T(KC_UP)
 #define RCTLR RCTL_T(KC_RGHT)
 
+
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* QWERTY - based off xd75 default map with a couple modifications for my preference
