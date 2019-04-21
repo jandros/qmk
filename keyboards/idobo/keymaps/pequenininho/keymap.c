@@ -1,4 +1,4 @@
-/* Copyright 2018 xAceOfSpaidsx
+/* Copyright 2018 pequenininho
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -13,7 +13,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+ 
+ /*
+ * This keymap is modified from my planck version, to account for the additional keys in the id75.
+ * It requires my config.h from the Pequenininho user area to include the intellij key shortcuts.
+ */
 #include QMK_KEYBOARD_H
+#include "pequenininho.h"
 
 enum idobo_layers = {
 	_QWERTY,
@@ -22,17 +28,13 @@ enum idobo_layers = {
 	_ADJUST
 }
 
-#define LOWER TT(_LOWER)
-#define RAISE TT(_RAISE)
-#define RALTD RALT_T(KC_DOWN)
-#define RGUIU RGUI_T(KC_UP)
-#define RCTLR RCTL_T(KC_RGHT)
+
 
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
-/* QWERTY - based off xd75 default map with a couple modifications for my preference
+/* QWERTY 
  * .--------------------------------------------------------------------------------------------------------------------------------------.
  * | ESC    | 1      | 2      | 3      | 4      | 5      | F2     | `      | F5     | 6      | 7      | 8      | 9      | 0      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
