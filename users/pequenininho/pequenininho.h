@@ -37,6 +37,18 @@
 // recent files
 #define IJ_RECN LCTL(KC_E)
 
+// VCS Tool Window
+#define IJ_VCS LALT(KC_9)
+
+// Project Tool Window 
+#define IJ_PROJ LALT(KC_1)
+
+// Structure Tool Window
+#define IJ_SRCT LALT(KC_7)
+
+// Parameters popup
+#define IJ_PRAM LCTL(KC_P)
+
 
 /***************************************************
  * Basic definitions for ortho keyboards
