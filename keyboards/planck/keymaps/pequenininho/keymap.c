@@ -16,6 +16,7 @@
 
 #include "planck.h"
 #include "action_layer.h"
+#include "pequenininho.h"
 
 extern keymap_config_t keymap_config;
 
@@ -37,11 +38,6 @@ enum planck_keycodes {
 };
 
 
-#define LOWER TT(_LOWER)
-#define RAISE TT(_RAISE)
-#define RALTD RALT_T(KC_DOWN)
-#define RGUIU RGUI_T(KC_UP)
-#define RCTLR RCTL_T(KC_RGHT)
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
