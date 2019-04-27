@@ -49,6 +49,9 @@
 // Parameters popup
 #define IJ_PRAM LCTL(KC_P)
 
+// Find Action
+#define IJ_ACTN LCTL(LSFT(KC_A))
+
 
 /***************************************************
  * Basic definitions for ortho keyboards

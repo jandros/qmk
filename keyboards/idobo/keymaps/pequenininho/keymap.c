@@ -52,7 +52,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  [_QWERTY] = LAYOUT_ortho_5x15(
    KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,  IJ_RECN, IJ_OPNF, IJ_OPNC, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   IJ_GDEC, IJ_GEN,  IJ_USAG, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   IJ_BK,   IJ_RNAM, IJ_FWD,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,  \
+   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   IJ_BK,   IJ_ACTN, IJ_FWD,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,  \
    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   IJ_FMT,  IJ_RFTR, IJ_PRAM, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT, \
    KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC, IJ_PROJ, IJ_VCS,  IJ_SRCT, KC_SPC,  RAISE,   KC_LEFT, RALTD,   RGUIU,   RCTLR  \
  ),
@@ -99,7 +99,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * ,-----------------------------------------------------------------------------------.
  * |      | Reset|      |      |      |      |      |      |      |      |      |  Del |
  * |------+------+------+------+------+-------------+------+------+------+------+------|
- * |      |      |      |Aud on|Audoff|AGnorm|AGswap|Qwerty|Colemk|Dvorak|Workmn|      |
+ * |      |      |      |Aud on|Audoff|AGnorm|AGswap|      |      |      |      |      |
  * |------+------+------+------+------+------|------+------+------+------+------+------|
  * |      |Voice-|Voice+|Mus on|Musoff|MIDIon|MIDIof|      |      |      | Click|      |
  * |------+------+------+------+------+------+------+------+------+------+------+------|
