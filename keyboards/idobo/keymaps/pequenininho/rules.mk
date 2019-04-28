@@ -16,5 +16,5 @@
 #Had to disable the first 2 to get the firmware size down enough after enabling the rgb controls.
 MOUSEKEY_ENABLE = no       # Mouse keys(+4700)
 COMMAND_ENABLE = no        # Commands for debug and configuration
-RGBLIGHT_ENABLE = yes      # Enable keyboard RGB underglow
+RGBLIGHT_ENABLE = no       # Disable keyboard RGB underglow
 KEY_LOCK_ENABLE = yes      # Enable lock key
