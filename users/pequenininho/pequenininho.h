@@ -61,5 +61,7 @@
 #define RALTD RALT_T(KC_DOWN)
 #define RGUIU RGUI_T(KC_UP)
 #define RCTLR RCTL_T(KC_RGHT)
+#define RGUIR RGUI_T(KC_RGHT)
+#define RCTLU RCTL_T(KC_UP)
 
 #endif
