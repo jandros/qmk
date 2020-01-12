@@ -2,10 +2,10 @@ steps:
 - name : "gcr.io/qmk-builder-257305/qmk-builder"
   args : [ 'git-submodules']
   id : 'git-submodules'
-  waitfor: ['-']
+  waitFor: ['-']
 - name : "gcr.io/qmk-builder-257305/qmk-builder"
   args : [ 'pequenininho:planck']
-  waitfor: ['git-submodules']
+  waitFor: ['git-submodules']
 artifacts:
     objects:
         location: 'gs://qmk-firmwares'
