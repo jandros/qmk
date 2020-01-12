@@ -4,7 +4,7 @@ steps:
   id : 'git-submodules'
   waitFor: ['-']
 - name : "gcr.io/qmk-builder-257305/qmk-builder"
-  args : [ 'pequenininho:planck']
+  args : [ 'planck/rev4:pequenininho']
   waitFor: ['git-submodules']
 artifacts:
     objects:
