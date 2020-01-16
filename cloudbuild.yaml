@@ -5,6 +5,15 @@ steps:
   waitFor: ['-']
 - name : "gcr.io/qmk-builder-257305/qmk-builder"
   args : [ 'planck/rev4:pequenininho']
+  id : 'planck'
+  waitFor: ['git-submodule']
+- name : "gcr.io/qmk-builder-257305/qmk-builder"
+  args : [ 'idobo:pequenininho']
+  waitFor: ['git-submodule']
+  id : 'idobo'
+- name : "gcr.io/qmk-builder-257305/qmk-builder"
+  args : [ 'keebio/nyquist/rev3:pequenininho']
+  id : 'nyquist'
   waitFor: ['git-submodule']
 artifacts:
     objects:
