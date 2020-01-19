@@ -18,6 +18,7 @@
 #include "action_layer.h"
 #include "pequenininho.h"
 #include "keymap_steno.h"
+#include "muse.h"
 #include "../../../../tmk_core/common/action_layer.h"
 
 extern keymap_config_t keymap_config;
@@ -179,8 +180,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case PLOVER:
       if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
-          stop_all_notes();
-      PLAY_SONG(plover_song);
+        stop_all_notes();
+        PLAY_SONG(plover_song);
 #endif
           layer_off(_RAISE);
           layer_off(_LOWER);

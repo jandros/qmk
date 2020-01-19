@@ -7,7 +7,7 @@ steps:
   args : [ 'planck/rev5:pequenininho', 'idobo:pequenininho', 'keebio/nyquist/rev3:pequenininho']
   id : build-firmwares
   waitFor: ['git-submodule']
-
+tags:  ['firmware', 'planck-rev5', 'planck', 'idobo', 'nyquist', 'nyquist-rev3']
 artifacts:
     objects:
         location: 'gs://qmk-firmwares'
