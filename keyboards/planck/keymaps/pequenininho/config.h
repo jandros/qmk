@@ -3,7 +3,6 @@
 
 #define NO_ACTION_MACRO
 #define NO_ACTION_FUNCTION
-#define NO_PRINT
 
 #include "config_common.h"
 
