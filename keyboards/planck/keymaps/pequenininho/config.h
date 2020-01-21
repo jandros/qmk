@@ -1,7 +1,7 @@
 #ifndef CONFIG_USER_H
 #define CONFIG_USER_H
 
-#define NO_DEBUG
+#define NO_ACTION_MACRO
 
 #include "config_common.h"
 
