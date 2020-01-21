@@ -38,7 +38,10 @@ enum planck_keycodes {
   PLOVER
 };
 
-
+#ifdef AUDIO_ENABLE
+float plover_on_song[][2] = SONG(PLOVER_SOUND);
+flot plover_off_song[][2] = SONG(PLOVER_GOODBYE_SOUND);
+#endif
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -181,7 +184,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
         stop_all_notes();
-        PLAY_SONG(SONG(PLOVER_SOUND));
+        PLAY_SONG(plover_on_song);
 #endif
           layer_off(_RAISE);
           layer_off(_LOWER);
@@ -194,7 +197,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case EXT_PLV:
       if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
-          PLAY_SONG(SONG(PLOVER_GOODBYE_SOUND));
+          PLAY_SONG(plover_off_song);
 #endif
           layer_off(_PLOVER);
       }
