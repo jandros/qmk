@@ -181,7 +181,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
         stop_all_notes();
-        PLAY_SONG(plover_song);
+        PLAY_SONG(SONG(PLOVER_SOUND));
 #endif
           layer_off(_RAISE);
           layer_off(_LOWER);
@@ -194,7 +194,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   case EXT_PLV:
       if (record->event.pressed) {
 #ifdef AUDIO_ENABLE
-          PLAY_SONG(plover_gb_song);
+          PLAY_SONG(SONG(PLOVER_GOODBYE_SOUND));
 #endif
           layer_off(_PLOVER);
       }
