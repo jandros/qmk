@@ -18,7 +18,6 @@
 #include "action_layer.h"
 #include "pequenininho.h"
 #include "keymap_steno.h"
-#include "muse.h"
 #include "../../../../tmk_core/common/action_layer.h"
 
 extern keymap_config_t keymap_config;
