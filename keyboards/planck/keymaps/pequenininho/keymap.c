@@ -32,7 +32,6 @@ enum planck_layers {
 
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
-  COLEMAK,
   PLOVER,
   EXT_PLV
 };
@@ -147,7 +146,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = {
   {_______, RESET,   DEBUG,   RGB_TOG, RGB_MOD, RGB_HUI, RGB_HUD, RGB_SAI, RGB_SAD,  RGB_VAI, RGB_VAD, KC_DEL },
-  {_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, QWERTY,  COLEMAK,  PLOVER,  _______, _______},
+  {_______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, DF(_QWERTY),  DF(_COLEMAK),  PLOVER,  QWERTY, _______},
   {KC_CAPS, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   MI_OFF,  TERM_ON, TERM_OFF, _______, CK_TOGG, _______},
   {_______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______}
 }
@@ -165,17 +164,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case QWERTY:
       if (record->event.pressed) {
         print("mode just switched to qwerty and this is a huge string\n");
-        layer_off(_COLEMAK);
-        layer_off(_PLOVER);
-        layer_on(_QWERTY);
-      }
-      return false;
-      break;
-    case COLEMAK:
-      if (record->event.pressed) {
-        layer_off(_QWERTY);
-        layer_off(_PLOVER);
-        layer_on(_COLEMAK);
+        set_single_persistent_default_layer(_QWERTY);
       }
       return false;
       break;

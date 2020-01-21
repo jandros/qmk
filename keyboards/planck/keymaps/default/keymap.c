@@ -20,8 +20,6 @@
 
 enum planck_layers {
   _QWERTY,
-  _COLEMAK,
-  _DVORAK,
   _LOWER,
   _RAISE,
   _PLOVER,
