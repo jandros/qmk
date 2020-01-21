@@ -35,12 +35,13 @@ enum planck_layers {
 enum planck_keycodes {
   QWERTY = SAFE_RANGE,
   COLEMAK,
-  PLOVER
+  PLOVER,
+  EXT_PLV
 };
 
 #ifdef AUDIO_ENABLE
 float plover_on_song[][2] = SONG(PLOVER_SOUND);
-flot plover_off_song[][2] = SONG(PLOVER_GOODBYE_SOUND);
+float plover_off_song[][2] = SONG(PLOVER_GOODBYE_SOUND);
 #endif
 
 
