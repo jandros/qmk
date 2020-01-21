@@ -2,6 +2,7 @@
 #define CONFIG_USER_H
 
 #define NO_ACTION_MACRO
+#define NO_ACTION_FUNCTION
 
 #include "config_common.h"
 
