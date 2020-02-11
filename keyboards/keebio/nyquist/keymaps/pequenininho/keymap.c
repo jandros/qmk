@@ -11,7 +11,6 @@ enum nyquist_layers {
     _ADJUST,
 };
 
-enum custom_keycodes {};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
