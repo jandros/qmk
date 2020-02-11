@@ -12,7 +12,6 @@ enum nyquist_layers {
 };
 
 enum custom_keycodes {
-  MAC = SAFE_RANGE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
