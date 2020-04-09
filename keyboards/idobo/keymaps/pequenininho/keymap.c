@@ -22,6 +22,10 @@
 #include "pequenininho.h"
 
 
+#define DEFAULT_LAYER_COLOR HSV_GOLD
+#define RAISE_LAYER_COLOR HSV_RED
+#define LOWER_LAYER_COLOR HSV_AZURE
+
 enum idobo_layers {
 	_QWERTY,
 	_RAISE,
@@ -29,6 +33,21 @@ enum idobo_layers {
 	_ADJUST
 };
 
+const rgblight_segment_t PROGMEM lower[] = RGBLIGHT_LAYER_SEGMENTS(
+{0, 16, LOWER_LAYER_COLOR}
+);
+
+const rgblight_segment_t PROGMEM raise[] = RGBLIGHT_LAYER_SEGMENTS(
+{0, 16, RAISE_LAYER_COLOR}
+);
+
+const rgblight_segment_t PROGMEM adjust[] = RGBLIGHT_LAYER_SEGMENTS(
+{0,4, LOWER_LAYER_COLOR},
+{4,8, RAISE_LAYER_COLOR},
+{12,4,LOWER_LAYER_COLOR}
+);
+
+const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(lower, raise, adjust);
 
 
 
@@ -115,6 +134,38 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 )
 };
 
-uint32_t layer_state_set_user(uint32_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+void keyboard_post_init_user(void) {
+    rgblight_sethsv_noeeprom(DEFAULT_LAYER_COLOR);
+    rgblight_layers = rgb_layers;
 }
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    layer_state_t newState = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    rgblight_set_layer_state(0, layer_state_cmp(newState, _LOWER));
+    rgblight_set_layer_state(1, layer_state_cmp(newState, _RAISE));
+    rgblight_set_layer_state(2, layer_state_cmp(newState, _ADJUST));
+    return newState;
+}
+
+
+
+void suspend_power_down_user(void) {
+    rgblight_disable();
+}
+
+void suspend_wakeup_init_user(void) {
+    rgblight_enable();
+}
+
+
+bool led_update_user(led_t led_state) {
+    return true;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        default:
+            return true;
+    }
+}
+
