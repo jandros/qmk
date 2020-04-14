@@ -25,6 +25,7 @@
 #define DEFAULT_LAYER_COLOR HSV_GOLD
 #define RAISE_LAYER_COLOR HSV_RED
 #define LOWER_LAYER_COLOR HSV_AZURE
+#define MAC_LAYER_COLOR HSV_SPRINGGREEN
 
 enum idobo_layers {
 	_QWERTY,
@@ -47,8 +48,11 @@ const rgblight_segment_t PROGMEM adjust[] = RGBLIGHT_LAYER_SEGMENTS(
 {4,8, RAISE_LAYER_COLOR},
 {12,4,LOWER_LAYER_COLOR}
 );
+const rgblight_segment_t PROGMEM mac[] = RGBLIGHT_LAYER_SEGMENTS(
+{0, 1, MAC_LAYER_COLOR}
+);
 
-const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(lower, raise, adjust);
+const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(lower, raise, adjust, mac);
 
 
 
@@ -96,7 +100,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    _______, _______, _______, _______, _______, _______, IJ_GDEC, IJ_GEN,  IJ_USAG, _______, _______, _______, _______, _______, _______, \
    _______, _______, _______, _______, _______, _______, IJ_BK,   IJ_ACTN, IJ_FWD, _______, _______, _______, _______, _______, _______,  \
    _______, _______, _______, _______, _______, _______, IJ_FMT,  IJ_RFTR, IJ_PRAM, _______, _______, _______, _______, _______, _______, \
-   KC_LCTL, KC_LGUI, _______, _______, _______, _______, IJ_PROJ, IJ_VCS,  IJ_SRCT, _______, _______, _______, _______,   RCTLU, RGUIR  \
+   KC_LGUI, KC_LCTL, _______, _______, _______, _______, IJ_PROJ, IJ_VCS,  IJ_SRCT, _______, _______, _______, _______,   RCTLU, RGUIR  \
  ),
 
 /* Raise
@@ -167,6 +171,7 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     rgblight_set_layer_state(0, layer_state_cmp(newState, _LOWER));
     rgblight_set_layer_state(1, layer_state_cmp(newState, _RAISE));
     rgblight_set_layer_state(2, layer_state_cmp(newState, _ADJUST));
+    rgblight_set_layer_state(3, layer_state_cmp(newState, _MAC));
     return newState;
 }
 
