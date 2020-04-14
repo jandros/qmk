@@ -1,6 +1,11 @@
 #include QMK_KEYBOARD_H
 #include "pequenininho.h"
 
+#define DEFAULT_LAYER_COLOR HSV_ORANGE
+#define RAISE_LAYER_COLOR HSV_RED
+#define LOWER_LAYER_COLOR HSV_BLUE
+#define MAC_LAYER_COLOR HSV_SPRINGGREEN
+
 extern keymap_config_t keymap_config;
 
 enum nyquist_layers {
@@ -10,6 +15,43 @@ enum nyquist_layers {
     _RAISE,
     _ADJUST,
 };
+// useful for identifying which LED is which
+const rgblight_segment_t PROGMEM qwerty[] = RGBLIGHT_LAYER_SEGMENTS(
+{0,1, HSV_WHITE},
+{1,1, HSV_RED},
+{2,1, HSV_ORANGE},
+{3,1, HSV_AZURE},
+{4,1, HSV_GREEN},
+{5,1, HSV_TEAL},
+{6,1, HSV_BLUE},
+{7,1, HSV_PURPLE},
+{8,1, HSV_MAGENTA},
+{9,1, HSV_SPRINGGREEN},
+{10,1, HSV_CORAL},
+{11,1, HSV_CHARTREUSE}
+);
+
+const rgblight_segment_t PROGMEM lower[] = RGBLIGHT_LAYER_SEGMENTS(
+{0, 12, LOWER_LAYER_COLOR}
+);
+
+const rgblight_segment_t PROGMEM raise[] = RGBLIGHT_LAYER_SEGMENTS(
+{0, 12, RAISE_LAYER_COLOR}
+);
+
+const rgblight_segment_t PROGMEM adjust[] = RGBLIGHT_LAYER_SEGMENTS(
+{0,3, LOWER_LAYER_COLOR},
+{3,3, RAISE_LAYER_COLOR},
+{6,3,LOWER_LAYER_COLOR},
+{9,3, RAISE_LAYER_COLOR}
+);
+
+const rgblight_segment_t PROGMEM mac[] = RGBLIGHT_LAYER_SEGMENTS(
+{0,1, MAC_LAYER_COLOR},
+{6,1, MAC_LAYER_COLOR}
+);
+
+const rgblight_segment_t* const PROGMEM rgb_layers[] = RGBLIGHT_LAYERS_LIST(lower, raise, adjust, mac);
 
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -115,7 +157,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
   _______, RESET  , RGB_TOG, RGB_MOD, RGB_HUD, RGB_HUI, RGB_SAD, RGB_SAI, RGB_VAD, RGB_VAI, _______, KC_DEL, \
   _______, _______, _______, AU_ON,   AU_OFF,  AG_NORM, AG_SWAP, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, _______, TG(_MAC), _______, _______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______,TG(_MAC), _______, _______, _______, _______, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______ \
 )
 
@@ -129,6 +171,40 @@ float tone_colemak[][2]    = SONG(COLEMAK_SOUND);
 #endif
 
 
-uint32_t layer_state_set_user(uint32_t state) {
-    return update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+
+void keyboard_post_init_user(void) {
+    rgblight_mode_noeeprom(0);
+    rgblight_sethsv_noeeprom(DEFAULT_LAYER_COLOR);
+    rgblight_layers = rgb_layers;
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    layer_state_t newState = update_tri_layer_state(state, _LOWER, _RAISE, _ADJUST);
+    rgblight_set_layer_state(0, layer_state_cmp(newState, _LOWER));
+    rgblight_set_layer_state(1, layer_state_cmp(newState, _RAISE));
+    rgblight_set_layer_state(2, layer_state_cmp(newState, _ADJUST));
+    rgblight_set_layer_state(3, layer_state_cmp(newState, _MAC));
+    return newState;
+}
+
+
+
+void suspend_power_down_user(void) {
+    rgblight_disable();
+}
+
+void suspend_wakeup_init_user(void) {
+    rgblight_enable();
+}
+
+
+bool led_update_user(led_t led_state) {
+    return true;
+}
+
+bool process_record_user(uint16_t keycode, keyrecord_t* record) {
+    switch (keycode) {
+        default:
+            return true;
+    }
 }
