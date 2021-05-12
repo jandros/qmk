@@ -21,11 +21,11 @@
 typedef int16_t spi_status_t;
 
 // Hardware SS pin is defined in the header so that user code can refer to it
-#if defined(__AVR_ATmega16U2__) || defined(__AVR_ATmega32U2__) || defined(__AVR_ATmega16U4__) || defined(__AVR_ATmega32U4__) || defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB647__) || defined(__AVR_AT90USB1286__) || defined(__AVR_AT90USB1287__)
+#if defined(__AVR_AT90USB162__) || defined(__AVR_ATmega16U2__) || defined(__AVR_ATmega32U2__) || defined(__AVR_ATmega16U4__) || defined(__AVR_ATmega32U4__) || defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB647__) || defined(__AVR_AT90USB1286__) || defined(__AVR_AT90USB1287__)
 #    define SPI_SS_PIN B0
 #elif defined(__AVR_ATmega32A__)
 #    define SPI_SS_PIN B4
-#elif defined(__AVR_ATmega328P__)
+#elif defined(__AVR_ATmega328P__) || defined(__AVR_ATmega328__)
 #    define SPI_SS_PIN B2
 #endif
 
@@ -41,15 +41,15 @@ extern "C" {
 #endif
 void spi_init(void);
 
-void spi_start(pin_t slavePin, bool lsbFirst, uint8_t mode, uint8_t divisor);
+bool spi_start(pin_t slavePin, bool lsbFirst, uint8_t mode, uint16_t divisor);
 
-spi_status_t spi_write(uint8_t data, uint16_t timeout);
+spi_status_t spi_write(uint8_t data);
 
-spi_status_t spi_read(uint16_t timeout);
+spi_status_t spi_read(void);
 
-spi_status_t spi_transmit(const uint8_t *data, uint16_t length, uint16_t timeout);
+spi_status_t spi_transmit(const uint8_t *data, uint16_t length);
 
-spi_status_t spi_receive(uint8_t *data, uint16_t length, uint16_t timeout);
+spi_status_t spi_receive(uint8_t *data, uint16_t length);
 
 void spi_stop(void);
 #ifdef __cplusplus
