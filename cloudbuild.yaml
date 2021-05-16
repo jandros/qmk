@@ -4,7 +4,7 @@ steps:
   id : 'git-submodule'
   waitFor: ['-']
 - name : "gcr.io/qmk-builder-257305/qmk-builder"
-  args : [ 'planck/rev5:pequenininho', 'idobo:pequenininho', 'keebio/nyquist/rev3:pequenininho', 'planck/rev5:antikythera']
+  args : [ 'planck/rev5:pequenininho', 'idobo:pequenininho', 'keebio/nyquist/rev3:pequenininho', 'moonlander/pequenininho']
   id : build-firmwares
   waitFor: ['git-submodule']
 tags:  ['firmware', 'planck-rev5', 'planck', 'idobo', 'nyquist', 'nyquist-rev3']
