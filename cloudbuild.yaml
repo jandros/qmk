@@ -11,4 +11,4 @@ tags:  ['firmware', 'planck-rev5', 'planck', 'idobo', 'nyquist', 'nyquist-rev3']
 artifacts:
     objects:
         location: 'gs://qmk-firmwares'
-        paths: ['*.hex']
+        paths: ['*.hex', '*.bin']
