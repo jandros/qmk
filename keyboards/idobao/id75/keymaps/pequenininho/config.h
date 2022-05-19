@@ -19,4 +19,10 @@
 // place overrides here
 
 //#undef RGBLIGHT_ANIMATIONS
-#define RGBLIGHT_LAYERS
+//#define RGBLIGHT_LAYERS
+
+
+
+#define TAPPING_TERM 500
+
+#define TAPPING_TOGGLE 3
