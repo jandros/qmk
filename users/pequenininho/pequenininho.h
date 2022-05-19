@@ -56,8 +56,8 @@
 /***************************************************
  * Basic definitions for ortho keyboards
  ***************************************************/
-#define LOWER TT(_LOWER)
-#define RAISE TT(_RAISE)
+#define LOWER MO(_LOWER)
+#define RAISE MO(_RAISE)
 #define RALTD RALT_T(KC_DOWN)
 #define RGUIU RGUI_T(KC_UP)
 #define RCTLR RCTL_T(KC_RGHT)

@@ -53,7 +53,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
    KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   IJ_GDEC, IJ_GEN,  IJ_USAG, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
    KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   IJ_BK,   IJ_ACTN, IJ_FWD,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,  \
    KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   IJ_FMT,  IJ_RFTR, IJ_PRAM, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT, \
-   KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC, IJ_PROJ, IJ_VCS,  IJ_SRCT, KC_SPC,  RAISE,   KC_LEFT, RALTD,   RGUIU,   RCTLR  \
+   KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC, DM_PLY1, IJ_VCS,  DM_PLY2, KC_SPC,  RAISE,   KC_LEFT, RALTD,   RGUIU,   RCTLR  \
  ),
 
 /* Raise
@@ -72,7 +72,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,  _______, KC_HOME, KC_UP,   KC_END,  KC_PGUP, _______, _______, _______, _______, _______, _______, KC_LPRN, KC_RPRN, KC_DEL,  \
   KC_PSCR, _______, KC_LEFT, KC_DOWN, KC_RGHT, KC_PGDN, _______, _______, _______, _______, KC_MINUS, KC_EQL, KC_LBRC, KC_RBRC, KC_BSLS, \
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, \
-  _______, _______, _______, _______, _______, KC_INS,  _______, _______, _______, KC_INS,  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END 
+  _______, _______, _______, _______, _______, KC_INS,  DM_REC1, _______, DM_REC2, KC_INS,  _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END 
 ),
 
 /* Lower
@@ -91,7 +91,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   KC_GRV,  KC_F10,  KC_F9,   KC_F8,   KC_F7,   _______, _______, _______, _______, _______, KC_7,    KC_8,    KC_9,    _______, KC_DEL , \
   _______, KC_F11,  KC_F6,   KC_F5,   KC_F4,   _______, _______, _______, _______, _______, KC_4,    KC_5,    KC_6,    _______, KC_BSLS, \
   _______, KC_F12,  KC_F3,   KC_F2,   KC_F1,   _______, _______, _______, _______, _______, KC_1,    KC_2,    KC_3,    _______, _______, \
-  _______, _______, _______, _______, _______, KC_0,    _______, _______, _______,  KC_0,   _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
+  _______, _______, _______, _______, _______, KC_0,    DM_REC1, _______, DM_REC2,  KC_0,   _______, KC_MNXT, KC_VOLD, KC_VOLU, KC_MPLY
 ),
 
 /* Adjust (Lower + Raise)
