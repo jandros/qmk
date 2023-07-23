@@ -50,11 +50,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
  [_QWERTY] = LAYOUT_ortho_5x15(
-   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,  IJ_RECN, IJ_OPNF, IJ_OPNC, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
-   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   IJ_GDEC, IJ_GEN,  IJ_USAG, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
-   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   IJ_BK,   IJ_ACTN, IJ_FWD,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,  \
-   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   IJ_FMT,  IJ_RFTR, IJ_PRAM, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, KC_SFTENT, \
-   KC_LCTL, KC_LGUI, KC_LALT, KC_LOCK, LOWER,   KC_SPC, DM_PLY1, IJ_VCS,  DM_PLY2, KC_SPC,  RAISE,   KC_LEFT, RALTD,   RGUIU,   RCTLR  \
+   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,   KC_F6,  CR_GREF, CR_GDEF, CR_GFIL, KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,  KC_F12, \
+   KC_TAB,  KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,   CR_GIMP, CR_PDEF, CR_SPLT, KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,    KC_BSPC, \
+   KC_ESC,  KC_A,    KC_S,    KC_D,    KC_F,    KC_G,   CR_BACK, CR_PIMP, CR_FWD,  KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,  \
+   KC_LSFT, KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,   CR_PREE, CR_FRMT, CR_NEXE, KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH, RSFT_T(KC_ENT), \
+   KC_LCTL, KC_LGUI, KC_LALT, QK_LOCK, LOWER,   KC_SPC, DM_PLY1, CR_AUTO, DM_PLY2, KC_SPC,  RAISE,   KC_LEFT, RALTD,   RGUIU,   RCTLR  \
  ),
  
  /*
@@ -119,10 +119,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_ADJUST] = LAYOUT_ortho_5x15(
   _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______, \
-  _______, RESET,   DEBUG,   _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, KC_DEL , \
-  _______, _______, MU_MOD,  AU_ON,   AU_OFF,  AG_NORM, _______, _______, _______, AG_SWAP, _______,  _______,  RGB_TOG,  _______, _______, \
-  _______, MUV_DE,  MUV_IN,  MU_ON,   MU_OFF,  MI_ON,   _______, _______, _______, MI_OFF,  TG(_MAC), TERM_OFF, _______, CK_TOGG, _______, \
-  _______, _______, _______, _______, _______, _______,  _______, _______, _______,_______, _______, _______,  _______, _______, _______
+  _______, QK_BOOT, DB_TOGG, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, KC_DEL , \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, RGB_TOG,  _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, TG(_MAC),_______, _______, _______, _______, \
+  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,  _______, _______, _______
 )
 };
 
